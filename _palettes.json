@@ -1,0 +1,51 @@
+{
+    "nextPaletteID": 4,
+    "palettes": {
+        "custom1": {
+            "id": "custom1",
+            "name": "grey",
+            "colors": [
+                "#000000",
+                "#FFFFFF",
+                "#FF2121",
+                "#FF93C4",
+                "#FF8135",
+                "#FFF609",
+                "#249CA3",
+                "#9F6C32",
+                "#AC6502",
+                "#442303",
+                "#A55F1D",
+                "#75530B",
+                "#945610",
+                "#9C330D",
+                "#91463d",
+                "#000000"
+            ],
+            "custom": true
+        },
+        "custom3": {
+            "id": "custom3",
+            "name": "Custom",
+            "colors": [
+                "#000000",
+                "#FFFFFF",
+                "#FF2121",
+                "#FF93C4",
+                "#FF8135",
+                "#FFF609",
+                "#249CA3",
+                "#78DC52",
+                "#003FAD",
+                "#87F2FF",
+                "#8E2EC4",
+                "#D6D6D6",
+                "#084F0D",
+                "#E5CDC4",
+                "#91463d",
+                "#000000"
+            ],
+            "custom": true
+        }
+    }
+}
