@@ -10,7 +10,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`house9`, function (sprite5, l
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`huggggg van 1`, function (sprite24, location23) {
     if (level == 1) {
-        tiles.setCurrentTilemap(tilemap`White Van`)
+        tiles.setCurrentTilemap(tilemap`White Van van`)
         mySprite.setPosition(125, 79)
         level = 2
     }
@@ -69,7 +69,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC, function (sprite, otherSpri
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Van`, function (sprite17, location16) {
     if (level == 1) {
-        tiles.setCurrentTilemap(tilemap`White Van`)
+        tiles.setCurrentTilemap(tilemap`White Van van`)
         mySprite.setPosition(125, 79)
         level = 2
     }
@@ -111,7 +111,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`house13`, function (sprite11,
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Cave3`, function (sprite16, location15) {
     if (level == 1) {
-        tiles.setCurrentTilemap(tilemap`Cave`)
+        tiles.setCurrentTilemap(tilemap`Cave cave 1`)
         mySprite.setPosition(125, 79)
         level = 2
     }
@@ -139,14 +139,14 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`house2`, function (sprite6, l
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Cave0`, function (sprite22, location21) {
     if (level == 1) {
-        tiles.setCurrentTilemap(tilemap`Cave`)
+        tiles.setCurrentTilemap(tilemap`Cave cave 1`)
         mySprite.setPosition(125, 79)
         level = 2
     }
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Cave4`, function (sprite23, location22) {
     if (level == 1) {
-        tiles.setCurrentTilemap(tilemap`Cave`)
+        tiles.setCurrentTilemap(tilemap`Cave cave 1`)
         mySprite.setPosition(125, 79)
         level = 2
     }
@@ -211,7 +211,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile21`, function (sprite12
 scene.onOverlapTile(SpriteKind.Player, assets.tile`house1`, function (sprite14, location13) {
     if (level == 1) {
         tiles.setCurrentTilemap(tilemap`NPC spawn`)
-        mySprite.setPosition(125, 79)
+        tiles.placeOnTile(dog_NPC, tiles.getTileLocation(12, 7))
         level = 2
     }
 })
@@ -224,7 +224,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`Cabin`, function (sprite9, lo
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Cave1`, function (sprite13, location12) {
     if (level == 1) {
-        tiles.setCurrentTilemap(tilemap`Cave`)
+        tiles.setCurrentTilemap(tilemap`Cave cave 1`)
         mySprite.setPosition(125, 79)
         level = 2
     }
@@ -385,6 +385,7 @@ function setOverworldSprites () {
         ...ffff..f99cc.............c999c.
         .........fffc..............cccc..
         `, SpriteKind.NPC)
+    scaling.scaleToPercent(blue_dog_NPC, 50, ScaleDirection.Uniformly, ScaleAnchor.Middle)
     tiles.placeOnTile(blue_dog_NPC, tiles.getTileLocation(15, 15))
     animation.runMovementAnimation(
     blue_dog_NPC,
@@ -495,6 +496,27 @@ let mySprite: Sprite = null
 mySprite = sprites.create(assets.image`carl`, SpriteKind.Player)
 controller.moveSprite(mySprite, 100, 100)
 scene.cameraFollowSprite(mySprite)
+let MAP = [
+tilemap`level11 main map`,
+tilemap`House7 copy`,
+tilemap`Cabin`,
+tilemap`Building office`,
+tilemap`Cave cave 1`,
+tilemap`White Van van`,
+tilemap`NPC spawn`,
+tilemap`Tree House`,
+tilemap`House1 copy0`,
+tilemap`House6`,
+tilemap`House2 copy0`,
+tilemap`House3 copy0`,
+tilemap`House4 copy0`,
+tilemap`House5 copy0`,
+tilemap`House6 copy0`,
+tilemap`Cave cave cave`,
+tilemap`Cave cave 4`,
+tilemap`Cave0`,
+tilemap`White Van0`
+]
 tiles.setCurrentTilemap(tilemap`level11 main map`)
 mySprite.x += 600
 mySprite.y += 490
