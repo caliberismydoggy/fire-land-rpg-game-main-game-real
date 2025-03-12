@@ -1,6 +1,20 @@
 namespace SpriteKind {
     export const NPC = SpriteKind.create()
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`house9`, function (sprite5, location4) {
+    if (level == 1) {
+        tiles.setCurrentTilemap(tilemap`NPC spawn`)
+        mySprite.setPosition(128, 98)
+        level = 2
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`huggggg van 1`, function (sprite24, location23) {
+    if (level == 1) {
+        tiles.setCurrentTilemap(tilemap`White Van`)
+        mySprite.setPosition(125, 79)
+        level = 2
+    }
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC, function (sprite, otherSprite) {
     if (otherSprite == treehouse_guy) {
         timer.throttle("action", 1000, function () {
@@ -12,83 +26,139 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.NPC, function (sprite, otherSpri
             mySprite3.sayText("\"Hey there Carl\"", 1000, false)
         })
     }
-    if (otherSprite == Mysprite4) {
+    if (otherSprite == fish_NPC) {
         timer.throttle("action", 1000, function () {
-            Mysprite4.sayText("\"Zoom!\"", 1000, false)
+            fish_NPC.sayText("\"Zoom!\"", 1000, false)
         })
     }
-    if (otherSprite == Mysprite5) {
+    if (otherSprite == dog_NPC) {
         timer.throttle("action", 1000, function () {
-            Mysprite5.sayText("\"woof\"", 1000, false)
+            dog_NPC.sayText("\"woof\"", 1000, false)
         })
     }
-    if (otherSprite == Mysprite6) {
+    if (otherSprite == princess_NPC) {
         timer.throttle("action", 1000, function () {
-            Mysprite6.sayText("\"goodmorning carl\"", 1000, false)
+            princess_NPC.sayText("\"goodmorning carl\"", 1000, false)
         })
     }
-    if (otherSprite == Mysprite7) {
+    if (otherSprite == purple_girl_NPC) {
         timer.throttle("action", 1000, function () {
-            Mysprite7.sayText("\"hope you live!\"", 1000, false)
+            purple_girl_NPC.sayText("\"hope you live!\"", 1000, false)
         })
     }
-    if (otherSprite == Mysprite8) {
+    if (otherSprite == blue_dog_NPC) {
         timer.throttle("action", 1000, function () {
-            Mysprite8.sayText("\"Bark\"", 1000, false)
+            blue_dog_NPC.sayText("\"Bark\"", 1000, false)
         })
     }
-    if (otherSprite == Mysprite9) {
+    if (otherSprite == cat_NPC) {
         timer.throttle("action", 1000, function () {
-            Mysprite9.sayText("\"meow\"", 1000, false)
+            cat_NPC.sayText("\"meow\"", 1000, false)
         })
     }
-    if (otherSprite == Mysprite10) {
+    if (otherSprite == wizardess_NPC) {
         timer.throttle("action", 1000, function () {
-            Mysprite10.sayText("\"Have a good day\"", 1000, false)
+            wizardess_NPC.sayText("\"Have a good day\"", 1000, false)
         })
     }
-    if (otherSprite == Mysprite11) {
+    if (otherSprite == chill_guy_NPC) {
         timer.throttle("action", 1000, function () {
-            Mysprite11.sayText("\"Why hello there!\"", 1000, false)
+            chill_guy_NPC.sayText("\"Why hello there!\"", 1000, false)
         })
     }
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`house5`, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Van`, function (sprite17, location16) {
+    if (level == 1) {
+        tiles.setCurrentTilemap(tilemap`White Van`)
+        mySprite.setPosition(125, 79)
+        level = 2
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`house0`, function (sprite4, location3) {
     if (level == 1) {
         tiles.setCurrentTilemap(tilemap`NPC spawn`)
         mySprite.setPosition(128, 98)
         level = 2
     }
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`house10`, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`house6`, function (sprite10, location9) {
     if (level == 1) {
         tiles.setCurrentTilemap(tilemap`NPC spawn`)
         mySprite.setPosition(128, 98)
         level = 2
     }
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`house0`, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`house11`, function (sprite19, location18) {
     if (level == 1) {
         tiles.setCurrentTilemap(tilemap`NPC spawn`)
         mySprite.setPosition(128, 98)
         level = 2
     }
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`house9`, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`house7`, function (sprite8, location7) {
     if (level == 1) {
         tiles.setCurrentTilemap(tilemap`NPC spawn`)
         mySprite.setPosition(128, 98)
         level = 2
     }
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`house2`, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`house13`, function (sprite11, location10) {
+    if (level == 1) {
+        tiles.setCurrentTilemap(tilemap`NPC spawn`)
+        mySprite.setPosition(128, 98)
+        level = 2
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Cave3`, function (sprite16, location15) {
+    if (level == 1) {
+        tiles.setCurrentTilemap(tilemap`Cave`)
+        mySprite.setPosition(125, 79)
+        level = 2
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile21`, function (sprite, location) {
+    if (level == 1) {
+        tiles.setCurrentTilemap(tilemap`Tree House`)
+        mySprite.setPosition(125, 79)
+        level = 2
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`house5`, function (sprite2, location) {
+    if (level == 1) {
+        tiles.setCurrentTilemap(tilemap`NPC spawn`)
+        mySprite.setPosition(128, 98)
+        level = 2
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`house2`, function (sprite6, location5) {
     if (level == 0) {
         tiles.setCurrentTilemap(tilemap`NPC spawn`)
         mySprite.setPosition(128, 98)
         level = 1
     }
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`warp`, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Cave0`, function (sprite22, location21) {
+    if (level == 1) {
+        tiles.setCurrentTilemap(tilemap`Cave`)
+        mySprite.setPosition(125, 79)
+        level = 2
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Cave4`, function (sprite23, location22) {
+    if (level == 1) {
+        tiles.setCurrentTilemap(tilemap`Cave`)
+        mySprite.setPosition(125, 79)
+        level = 2
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`house 4`, function (sprite20, location19) {
+    if (level == 1) {
+        tiles.setCurrentTilemap(tilemap`NPC spawn`)
+        mySprite.setPosition(128, 98)
+        level = 2
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`warp`, function (sprite7, location6) {
     if (level == 5) {
         tiles.setCurrentTilemap(tilemap`level11 main map`)
         mySprite.x += 600
@@ -97,35 +167,14 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`warp`, function (sprite, loca
         setOverworldSprites()
     }
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`house7`, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`house8`, function (sprite21, location20) {
     if (level == 1) {
         tiles.setCurrentTilemap(tilemap`NPC spawn`)
         mySprite.setPosition(128, 98)
         level = 2
     }
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`Cabin`, function (sprite, location) {
-    if (level == 1) {
-        tiles.setCurrentTilemap(tilemap`Cabin`)
-        mySprite.setPosition(125, 79)
-        level = 2
-    }
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`house6`, function (sprite, location) {
-    if (level == 1) {
-        tiles.setCurrentTilemap(tilemap`NPC spawn`)
-        mySprite.setPosition(128, 98)
-        level = 2
-    }
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`house13`, function (sprite, location) {
-    if (level == 1) {
-        tiles.setCurrentTilemap(tilemap`NPC spawn`)
-        mySprite.setPosition(128, 98)
-        level = 2
-    }
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile21`, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile21`, function (sprite12, location11) {
     mySprite.setPosition(128, 98)
     if (level == 0) {
         tiles.setCurrentTilemap(tilemap`Tree House`)
@@ -159,68 +208,30 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile21`, function (sprite, 
         tiles.placeOnRandomTile(treehouse_guy, assets.tile`myTile48`)
     }
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`Cave1`, function (sprite, location) {
-    if (level == 1) {
-        tiles.setCurrentTilemap(tilemap`Cave`)
-        mySprite.setPosition(125, 79)
-        level = 2
-    }
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`house1`, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`house1`, function (sprite14, location13) {
     if (level == 1) {
         tiles.setCurrentTilemap(tilemap`NPC spawn`)
         mySprite.setPosition(125, 79)
         level = 2
     }
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`house3`, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Cabin`, function (sprite9, location8) {
     if (level == 1) {
-        tiles.setCurrentTilemap(tilemap`NPC spawn`)
-        mySprite.setPosition(128, 98)
+        tiles.setCurrentTilemap(tilemap`Cabin`)
+        mySprite.setPosition(125, 79)
         level = 2
     }
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`Cave3`, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Cave1`, function (sprite13, location12) {
     if (level == 1) {
         tiles.setCurrentTilemap(tilemap`Cave`)
         mySprite.setPosition(125, 79)
         level = 2
     }
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`Van`, function (sprite, location) {
-    if (level == 1) {
-        tiles.setCurrentTilemap(tilemap`White Van`)
-        mySprite.setPosition(125, 79)
-        level = 2
-    }
-})
-function setOverworldSprites2 () {
-	
-}
-scene.onOverlapTile(SpriteKind.Player, assets.tile`building office`, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`building office`, function (sprite18, location17) {
     if (level == 1) {
         tiles.setCurrentTilemap(tilemap`Building office`)
-        mySprite.setPosition(128, 98)
-        level = 2
-    }
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`house11`, function (sprite, location) {
-    if (level == 1) {
-        tiles.setCurrentTilemap(tilemap`NPC spawn`)
-        mySprite.setPosition(128, 98)
-        level = 2
-    }
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`house 4`, function (sprite, location) {
-    if (level == 1) {
-        tiles.setCurrentTilemap(tilemap`NPC spawn`)
-        mySprite.setPosition(128, 98)
-        level = 2
-    }
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`house8`, function (sprite, location) {
-    if (level == 1) {
-        tiles.setCurrentTilemap(tilemap`NPC spawn`)
         mySprite.setPosition(128, 98)
         level = 2
     }
@@ -234,7 +245,7 @@ function setOverworldSprites () {
     2000,
     true
     )
-    Mysprite4 = sprites.create(img`
+    fish_NPC = sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . c c c c . . . 
         . . . . . . . c c d d d d c . . 
@@ -252,14 +263,14 @@ function setOverworldSprites () {
         . . . . . . f f f f d d d c . . 
         . . . . . . . . . . c c c . . . 
         `, SpriteKind.NPC)
-    tiles.placeOnRandomTile(Mysprite4, sprites.castle.tileGrass2)
+    tiles.placeOnTile(fish_NPC, tiles.getTileLocation(70, 15))
     animation.runMovementAnimation(
-    Mysprite4,
+    fish_NPC,
     animation.animationPresets(animation.waveLeft),
     2000,
     true
     )
-    Mysprite5 = sprites.create(img`
+    dog_NPC = sprites.create(img`
         . . 4 4 4 . . . . 4 4 4 . . . . 
         . 4 5 5 5 e . . e 5 5 5 4 . . . 
         4 5 5 5 5 5 e e 5 5 5 5 5 4 . . 
@@ -275,14 +286,14 @@ function setOverworldSprites () {
         . . . f 5 f f f 5 f f 5 f . . . 
         . . . f f . . f f . . f f . . . 
         `, SpriteKind.NPC)
-    tiles.placeOnTile(Mysprite5, tiles.getTileLocation(30, 50))
+    tiles.placeOnTile(dog_NPC, tiles.getTileLocation(30, 50))
     animation.runMovementAnimation(
-    Mysprite5,
+    dog_NPC,
     animation.animationPresets(animation.shake),
     2000,
     true
     )
-    Mysprite6 = sprites.create(img`
+    princess_NPC = sprites.create(img`
         . . . . . . 5 . 5 . . . . . . . 
         . . . . . f 5 5 5 f f . . . . . 
         . . . . f 1 5 2 5 1 6 f . . . . 
@@ -300,14 +311,14 @@ function setOverworldSprites () {
         . . . f f f f f f f f f f . . . 
         . . . . . f f . . f f . . . . . 
         `, SpriteKind.NPC)
+    tiles.placeOnTile(princess_NPC, tiles.getTileLocation(45, 15))
     animation.runMovementAnimation(
-    Mysprite6,
+    princess_NPC,
     animation.animationPresets(animation.waveLeft),
     2000,
     true
     )
-    tiles.placeOnTile(Mysprite6, tiles.getTileLocation(45, 15))
-    Mysprite7 = sprites.create(img`
+    purple_girl_NPC = sprites.create(img`
         . f f f . f f f f . f f f . 
         f f f f f c c c c f f f f f 
         f f f f b c c c c b f f f f 
@@ -325,14 +336,14 @@ function setOverworldSprites () {
         . . . . f f f f f f . . . . 
         . . . . f f . . f f . . . . 
         `, SpriteKind.NPC)
+    tiles.placeOnTile(purple_girl_NPC, tiles.getTileLocation(65, 50))
     animation.runMovementAnimation(
-    Mysprite7,
+    purple_girl_NPC,
     animation.animationPresets(animation.easeUp),
     2000,
     true
     )
-    tiles.placeOnTile(Mysprite7, tiles.getTileLocation(65, 50))
-    Mysprite8 = sprites.create(img`
+    blue_dog_NPC = sprites.create(img`
         bbbb........bbbb.................
         c99bb......bb99b.................
         c999bb....bb999c.................
@@ -374,14 +385,14 @@ function setOverworldSprites () {
         ...ffff..f99cc.............c999c.
         .........fffc..............cccc..
         `, SpriteKind.NPC)
+    tiles.placeOnTile(blue_dog_NPC, tiles.getTileLocation(15, 15))
     animation.runMovementAnimation(
-    Mysprite8,
+    blue_dog_NPC,
     animation.animationPresets(animation.bobbing),
     2000,
     true
     )
-    tiles.placeOnTile(Mysprite8, tiles.getTileLocation(15, 15))
-    Mysprite9 = sprites.create(img`
+    cat_NPC = sprites.create(img`
         e e e . . . . e e e . . . . 
         c d d c . . c d d c . . . . 
         c b d d f f d d b c . . . . 
@@ -397,14 +408,14 @@ function setOverworldSprites () {
         . f d f f f d f f d f . . . 
         . f f . . f f . . f f . . . 
         `, SpriteKind.NPC)
+    tiles.placeOnTile(cat_NPC, tiles.getTileLocation(40, 55))
     animation.runMovementAnimation(
-    Mysprite9,
+    cat_NPC,
     animation.animationPresets(animation.parachuteLeft),
     2000,
     true
     )
-    tiles.placeOnTile(Mysprite9, tiles.getTileLocation(40, 55))
-    Mysprite10 = sprites.create(img`
+    wizardess_NPC = sprites.create(img`
         . . . . . . . c c c . . . . . . 
         . . . . . . c b 5 c . . . . . . 
         . . . . c c c 5 5 c c c . . . . 
@@ -422,14 +433,14 @@ function setOverworldSprites () {
         . . . . c b 5 5 5 5 b c . . . . 
         . . . . . f f f f f f . . . . . 
         `, SpriteKind.NPC)
+    tiles.placeOnTile(wizardess_NPC, tiles.getTileLocation(23, 30))
     animation.runMovementAnimation(
-    Mysprite10,
+    wizardess_NPC,
     animation.animationPresets(animation.bobbing),
     2000,
     true
     )
-    tiles.placeOnTile(Mysprite10, tiles.getTileLocation(23, 30))
-    Mysprite11 = sprites.create(img`
+    chill_guy_NPC = sprites.create(img`
         . . . . f f f f . . . . 
         . . f f e e e e f f . . 
         . f f e e e e e e f f . 
@@ -447,43 +458,36 @@ function setOverworldSprites () {
         . . . f f f f f f . . . 
         . . . f f . . f f . . . 
         `, SpriteKind.NPC)
+    tiles.placeOnTile(chill_guy_NPC, tiles.getTileLocation(70, 30))
     animation.runMovementAnimation(
-    Mysprite11,
+    chill_guy_NPC,
     animation.animationPresets(animation.shake),
     2000,
     true
     )
-    tiles.placeOnTile(Mysprite11, tiles.getTileLocation(70, 30))
 }
-scene.onOverlapTile(SpriteKind.Player, assets.tile`Cave0`, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`house3`, function (sprite15, location14) {
     if (level == 1) {
-        tiles.setCurrentTilemap(tilemap`Cave`)
-        mySprite.setPosition(125, 79)
+        tiles.setCurrentTilemap(tilemap`NPC spawn`)
+        mySprite.setPosition(128, 98)
         level = 2
     }
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`Cave4`, function (sprite, location) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`house10`, function (sprite3, location2) {
     if (level == 1) {
-        tiles.setCurrentTilemap(tilemap`Cave`)
-        mySprite.setPosition(125, 79)
+        tiles.setCurrentTilemap(tilemap`NPC spawn`)
+        mySprite.setPosition(128, 98)
         level = 2
     }
 })
-scene.onOverlapTile(SpriteKind.Player, assets.tile`huggggg van 1`, function (sprite, location) {
-    if (level == 1) {
-        tiles.setCurrentTilemap(tilemap`White Van`)
-        mySprite.setPosition(125, 79)
-        level = 2
-    }
-})
-let Mysprite11: Sprite = null
-let Mysprite10: Sprite = null
-let Mysprite9: Sprite = null
-let Mysprite8: Sprite = null
-let Mysprite7: Sprite = null
-let Mysprite6: Sprite = null
-let Mysprite5: Sprite = null
-let Mysprite4: Sprite = null
+let chill_guy_NPC: Sprite = null
+let wizardess_NPC: Sprite = null
+let cat_NPC: Sprite = null
+let blue_dog_NPC: Sprite = null
+let purple_girl_NPC: Sprite = null
+let princess_NPC: Sprite = null
+let dog_NPC: Sprite = null
+let fish_NPC: Sprite = null
 let mySprite3: Sprite = null
 let treehouse_guy: Sprite = null
 let level = 0
@@ -504,27 +508,27 @@ game.onUpdate(function () {
         sprites.destroy(treehouse_guy)
     }
     if (level != 0) {
-        sprites.destroy(Mysprite4)
+        sprites.destroy(fish_NPC)
     }
     if (level != 0) {
-        sprites.destroy(Mysprite5)
+        sprites.destroy(dog_NPC)
     }
     if (level != 0) {
-        sprites.destroy(Mysprite6)
+        sprites.destroy(princess_NPC)
     }
     if (level != 0) {
-        sprites.destroy(Mysprite7)
+        sprites.destroy(purple_girl_NPC)
     }
     if (level != 0) {
-        sprites.destroy(Mysprite8)
+        sprites.destroy(blue_dog_NPC)
     }
     if (level != 0) {
-        sprites.destroy(Mysprite9)
+        sprites.destroy(cat_NPC)
     }
     if (level != 0) {
-        sprites.destroy(Mysprite10)
+        sprites.destroy(wizardess_NPC)
     }
     if (level != 0) {
-        sprites.destroy(Mysprite11)
+        sprites.destroy(chill_guy_NPC)
     }
 })
