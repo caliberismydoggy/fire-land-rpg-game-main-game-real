@@ -525,32 +525,16 @@ setOverworldSprites()
 game.onUpdate(function () {
     if (level != 0) {
         sprites.destroy(mySprite3)
+        sprites.destroy(fish_NPC)
+        sprites.destroy(dog_NPC)
+        sprites.destroy(princess_NPC)
+        sprites.destroy(purple_girl_NPC)
+        sprites.destroy(blue_dog_NPC)
+        sprites.destroy(wizardess_NPC)
+        sprites.destroy(cat_NPC)
+        sprites.destroy(chill_guy_NPC)
     }
     if (level != 5) {
         sprites.destroy(treehouse_guy)
-    }
-    if (level != 0) {
-        sprites.destroy(fish_NPC)
-    }
-    if (level != 0) {
-        sprites.destroy(dog_NPC)
-    }
-    if (level != 0) {
-        sprites.destroy(princess_NPC)
-    }
-    if (level != 0) {
-        sprites.destroy(purple_girl_NPC)
-    }
-    if (level != 0) {
-        sprites.destroy(blue_dog_NPC)
-    }
-    if (level != 0) {
-        sprites.destroy(cat_NPC)
-    }
-    if (level != 0) {
-        sprites.destroy(wizardess_NPC)
-    }
-    if (level != 0) {
-        sprites.destroy(chill_guy_NPC)
     }
 })
