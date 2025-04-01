@@ -12,33 +12,35 @@ namespace SpriteKind {
     export const monster10 = SpriteKind.create()
     export const monster11 = SpriteKind.create()
     export const monster12 = SpriteKind.create()
+    export const monster13 = SpriteKind.create()
+    export const monster14 = SpriteKind.create()
+    export const monster14c = SpriteKind.create()
+    export const monster15 = SpriteKind.create()
+    export const monster16 = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.monster8, function (sprite, otherSprite) {
     life += 1
     sprites.destroy(otherSprite, effects.disintegrate, 500)
     scene.cameraShake(4, 500)
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile91, function (sprite1211, location1111) {
-    if (level == 12) {
-        tiles.setCurrentTilemap(tilemap`bruh`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(24, 24))
-        level = 0
+scene.onOverlapTile(SpriteKind.Player, assets.tile`building office`, function (sprite1211, location1111) {
+    if (level == 0) {
+        tiles.setCurrentTilemap(tilemap`Building office`)
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
+        level = 11
         setOverworldSprites()
     }
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile83, function (sprite1211, location1111) {
-    if (level == 0) {
-        tiles.setCurrentTilemap(tilemap`Cave1`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
-        level = 2
-        setOverworldSprites()
-    }
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster14, function (sprite, otherSprite) {
+    sprites.destroy(mySprite)
+    statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -15
+    score += 1
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile76, function (sprite1211, location1111) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`house0`, function (sprite1211, location1111) {
     if (level == 0) {
-        tiles.setCurrentTilemap(tilemap`23456567`)
+        tiles.setCurrentTilemap(tilemap`House7`)
         tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
-        level = 10
+        level = 3
         setOverworldSprites()
     }
 })
@@ -99,25 +101,56 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.monster11, function (sprite, oth
     sprites.destroy(otherSprite, effects.disintegrate, 500)
     scene.cameraShake(4, 500)
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile87, function (sprite1211, location1111) {
-    if (level == 0) {
-        tiles.setCurrentTilemap(tilemap`White Van van`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
-        level = 4
-        monster5 = sprites.create(assets.image`flame sprite`, SpriteKind.monster5)
-        tiles.placeOnRandomTile(monster5, sprites.dungeon.floorLight0)
-        statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
-        statusbar.setColor(5, 12)
-        statusbar.value = 100
-        statusbar.attachToSprite(monster5)
-    }
-})
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster8, function (sprite, otherSprite) {
     sprites.destroy(mySprite)
     statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -15
     score += 1
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile25, function (sprite1211, location1111) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Cave0`, function (sprite1211, location1111) {
+    if (level == 0) {
+        tiles.setCurrentTilemap(tilemap`Cave1`)
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
+        level = 2
+        setOverworldSprites()
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Cabin`, function (sprite1211, location1111) {
+    if (level == 0) {
+        tiles.setCurrentTilemap(tilemap`Cabin`)
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
+        level = 15
+        monster3 = sprites.create(assets.image`flame sprite`, SpriteKind.monster3)
+        tiles.placeOnRandomTile(monster3, assets.tile`brick floor`)
+        statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
+        statusbar.setColor(5, 12)
+        statusbar.value = 100
+        statusbar.attachToSprite(monster3)
+    }
+    if (spriteutils.distanceBetween(mySprite, monster3) < 100) {
+        monster3.follow(mySprite, -10)
+    } else {
+        monster3.follow(null)
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`house 4`, function (sprite1211, location1111) {
+    if (level == 0) {
+        tiles.setCurrentTilemap(tilemap`White House pls work`)
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
+        level = 5
+        monster4 = sprites.create(assets.image`flame sprite`, SpriteKind.monster4)
+        tiles.placeOnRandomTile(monster4, assets.tile`myTile60`)
+        statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
+        statusbar.setColor(5, 12)
+        statusbar.value = 100
+        statusbar.attachToSprite(monster4)
+    }
+    if (spriteutils.distanceBetween(mySprite, monster4) < 100) {
+        monster4.follow(mySprite, -10)
+    } else {
+        monster4.follow(null)
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Van`, function (sprite1211, location1111) {
     if (level == 0) {
         tiles.setCurrentTilemap(tilemap`White Van van van on van pls van on fortnite`)
         tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
@@ -125,31 +158,10 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile25, function (sprite1211, loc
         setOverworldSprites()
     }
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile81, function (sprite1211, location1111) {
-    if (level == 0) {
-        tiles.setCurrentTilemap(tilemap`bouncy house but normal`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
-        level = 17
-        monster12 = sprites.create(assets.image`flame sprite`, SpriteKind.monster12)
-        tiles.placeOnRandomTile(monster12, myTiles.tile88)
-        statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
-        statusbar.setColor(5, 12)
-        statusbar.value = 100
-        statusbar.attachToSprite(monster12)
-    }
-})
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile14, function (sprite1211, location1111) {
-    if (level == 2) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`og og og cave`, function (sprite1211, location1111) {
+    if (level == 13) {
         tiles.setCurrentTilemap(tilemap`bruh`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(36, 46))
-        level = 0
-        setOverworldSprites()
-    }
-})
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile47, function (sprite1211, location1111) {
-    if (level == 10) {
-        tiles.setCurrentTilemap(tilemap`bruh`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(76, 45))
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(51, 13))
         level = 0
         setOverworldSprites()
     }
@@ -164,37 +176,63 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.monster10, function (sprite, oth
     sprites.destroy(otherSprite, effects.disintegrate, 500)
     scene.cameraShake(4, 500)
 })
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster2, function (sprite, otherSprite) {
-    sprites.destroy(mySprite)
-    statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -15
-    score += 1
-})
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile84, function (sprite1211, location1111) {
-    if (level == 0) {
-        tiles.setCurrentTilemap(tilemap`Cave0`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
-        level = 6
-        setOverworldSprites()
-    }
-})
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile75, function (sprite1211, location1111) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`house13`, function (sprite1211, location1111) {
     if (level == 0) {
         tiles.setCurrentTilemap(tilemap`house on house near house`)
         tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
         level = 14
         monster2 = sprites.create(assets.image`flame sprite`, SpriteKind.monster2)
-        tiles.placeOnRandomTile(monster2, myTiles.tile88)
+        tiles.placeOnRandomTile(monster2, assets.tile`myTile60`)
         statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
         statusbar.setColor(5, 12)
         statusbar.value = 100
         statusbar.attachToSprite(monster2)
     }
+    if (spriteutils.distanceBetween(mySprite, monster2) < 100) {
+        monster2.follow(mySprite, -10)
+    } else {
+        monster2.follow(null)
+    }
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile71, function (sprite1211, location1111) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`house5`, function (sprite1211, location1111) {
     if (level == 0) {
-        tiles.setCurrentTilemap(tilemap`House7`)
+        tiles.setCurrentTilemap(tilemap`23456567`)
         tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
-        level = 3
+        level = 10
+        setOverworldSprites()
+    }
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.monster16, function (sprite, otherSprite) {
+    life += 1
+    sprites.destroy(otherSprite, effects.disintegrate, 500)
+    scene.cameraShake(4, 500)
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster2, function (sprite, otherSprite) {
+    sprites.destroy(mySprite)
+    statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -15
+    score += 1
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`reddddddddddddddddd`, function (sprite1211, location1111) {
+    if (level == 10) {
+        tiles.setCurrentTilemap(tilemap`bruh`)
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(76, 45))
+        level = 0
+        setOverworldSprites()
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`use me pls`, function (sprite1211, location1111) {
+    if (level == 11) {
+        tiles.setCurrentTilemap(tilemap`bruh`)
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(14, 14))
+        level = 0
+        setOverworldSprites()
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`big big red big big`, function (sprite1211, location1111) {
+    if (level == 12) {
+        tiles.setCurrentTilemap(tilemap`bruh`)
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(24, 24))
+        level = 0
         setOverworldSprites()
     }
 })
@@ -208,33 +246,20 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster9, function (sprite, 
     statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -15
     score += 1
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile29, function (sprite1211, location1111) {
-    if (level == 4) {
-        tiles.setCurrentTilemap(tilemap`bruh`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(45, 49))
-        level = 0
-        setOverworldSprites()
-    }
-})
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile99, function (sprite1211, location1111) {
-    if (level == 5) {
-        tiles.setCurrentTilemap(tilemap`bruh`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(50, 38))
-        level = 0
-        setOverworldSprites()
-    }
-})
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile85, function (sprite1211, location1111) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Cave4`, function (sprite1211, location1111) {
     if (level == 0) {
-        tiles.setCurrentTilemap(tilemap`cavey cave near cave`)
+        tiles.setCurrentTilemap(tilemap`og og og cave`)
         tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
-        level = 12
-        monster_1 = sprites.create(assets.image`flame sprite`, SpriteKind.monster1)
-        tiles.placeOnTile(monster_1, tiles.getTileLocation(8, 11))
-        statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
-        statusbar.setColor(5, 12)
-        statusbar.value = 100
-        statusbar.attachToSprite(monster_1)
+        level = 13
+        setOverworldSprites()
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`blue`, function (sprite1211, location1111) {
+    if (level == 14) {
+        tiles.setCurrentTilemap(tilemap`bruh`)
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(34, 56))
+        level = 0
+        setOverworldSprites()
     }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.monster9, function (sprite, otherSprite) {
@@ -242,60 +267,10 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.monster9, function (sprite, othe
     sprites.destroy(otherSprite, effects.disintegrate, 500)
     scene.cameraShake(4, 500)
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile95, function (sprite1211, location1111) {
-    if (level == 16) {
-        tiles.setCurrentTilemap(tilemap`bruh`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(8, 29))
-        level = 0
-        setOverworldSprites()
-    }
-})
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile28, function (sprite1211, location1111) {
-    if (level == 0) {
-        tiles.setCurrentTilemap(tilemap`Tree House`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(8, 7))
-        level = 5
-        treehouse_guy = sprites.create(img`
-            ........................
-            ......ffff..............
-            ....fff22fff............
-            ...fff2222fff...........
-            ..fffeeeeeefff..........
-            ..ffe222222eef..........
-            ..fe2ffffff2ef..........
-            ..ffffeeeeffff..........
-            .ffefbf44fbfeff.........
-            .fee41fddf14eef.........
-            fdfeeddddd4eff..........
-            fbffee444edd4e..........
-            fbf4f2222edde...........
-            fcf.f22cccee............
-            .ff.f44cdc4f............
-            ....fffddcff............
-            .....fddcff.............
-            ....cddc................
-            ....cdc.................
-            ....cc..................
-            ........................
-            ........................
-            ........................
-            ........................
-            `, SpriteKind.NPC)
-        tiles.placeOnTile(treehouse_guy, tiles.getTileLocation(4, 9))
-    }
-})
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster4, function (sprite, otherSprite) {
     sprites.destroy(mySprite)
     statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -15
     score += 1
-})
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile93, function (sprite1211, location1111) {
-    if (level == 14) {
-        tiles.setCurrentTilemap(tilemap`bruh`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(34, 56))
-        level = 0
-        setOverworldSprites()
-    }
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.monster12, function (sprite, otherSprite) {
     life += 1
@@ -304,6 +279,14 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.monster12, function (sprite, oth
 })
 statusbars.onZero(StatusBarKind.Health, function (status) {
     sprites.destroy(statusbar.spriteAttachedTo())
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Cave1`, function (sprite1211, location1111) {
+    if (level == 0) {
+        tiles.setCurrentTilemap(tilemap`Cave0`)
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
+        level = 6
+        setOverworldSprites()
+    }
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster1, function (sprite, otherSprite) {
     sprites.destroy(mySprite)
@@ -315,33 +298,51 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster6, function (sprite, 
     statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -15
     score += 1
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile92, function (sprite1211, location1111) {
-    if (level == 13) {
-        tiles.setCurrentTilemap(tilemap`bruh`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(51, 13))
-        level = 0
-        setOverworldSprites()
-    }
-})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.monster1, function (sprite, otherSprite) {
     life += 1
     sprites.destroy(otherSprite, effects.disintegrate, 500)
     scene.cameraShake(4, 500)
-})
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile26, function (sprite1211, location1111) {
-    if (level == 0) {
-        tiles.setCurrentTilemap(tilemap`Building office`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
-        level = 11
-        setOverworldSprites()
-    }
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster7, function (sprite, otherSprite) {
     sprites.destroy(mySprite)
     statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -15
     score += 1
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile94, function (sprite1211, location1111) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile12`, function (sprite1211, location1111) {
+    if (level == 2) {
+        tiles.setCurrentTilemap(tilemap`bruh`)
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(36, 46))
+        level = 0
+        setOverworldSprites()
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`Cave3`, function (sprite1211, location1111) {
+    if (level == 0) {
+        tiles.setCurrentTilemap(tilemap`cavey cave near cave`)
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
+        level = 12
+        monster_1 = sprites.create(assets.image`flame sprite`, SpriteKind.monster1)
+        tiles.placeOnTile(monster_1, tiles.getTileLocation(8, 11))
+        statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
+        statusbar.setColor(5, 12)
+        statusbar.value = 100
+        statusbar.attachToSprite(monster_1)
+    }
+    if (spriteutils.distanceBetween(mySprite, monster_1) < 100) {
+        monster_1.follow(mySprite, -10)
+    } else {
+        monster_1.follow(null)
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`RED with more red`, function (sprite1211, location1111) {
+    if (level == 6) {
+        tiles.setCurrentTilemap(tilemap`bruh`)
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(55, 58))
+        level = 0
+        setOverworldSprites()
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`cabby in cabbbbbbin`, function (sprite1211, location1111) {
     if (level == 15) {
         tiles.setCurrentTilemap(tilemap`bruh`)
         tiles.placeOnTile(mySprite, tiles.getTileLocation(51, 22))
@@ -354,11 +355,19 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.monster4, function (sprite, othe
     sprites.destroy(otherSprite, effects.disintegrate, 500)
     scene.cameraShake(4, 500)
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile41, function (sprite1211, location1111) {
-    if (level == 6) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`White van van color red for warp`, function (sprite1211, location1111) {
+    if (level == 4) {
         tiles.setCurrentTilemap(tilemap`bruh`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(55, 58))
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(45, 49))
         level = 0
+        setOverworldSprites()
+    }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`house1`, function (sprite1211, location1111) {
+    if (level == 0) {
+        tiles.setCurrentTilemap(tilemap`House0`)
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
+        level = 1
         setOverworldSprites()
     }
 })
@@ -372,20 +381,38 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster5, function (sprite, 
     statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -15
     score += 1
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`huggggg van 1`, function (sprite1211, location1111) {
+    if (level == 0) {
+        tiles.setCurrentTilemap(tilemap`White Van van`)
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
+        level = 4
+        monster5 = sprites.create(assets.image`flame sprite`, SpriteKind.monster5)
+        tiles.placeOnRandomTile(monster5, sprites.dungeon.floorLight0)
+        statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
+        statusbar.setColor(5, 12)
+        statusbar.value = 100
+        statusbar.attachToSprite(monster5)
+    }
+    if (spriteutils.distanceBetween(mySprite, monster5) < 100) {
+        monster5.follow(mySprite, -10)
+    } else {
+        monster5.follow(null)
+    }
+})
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster10, function (sprite, otherSprite) {
     sprites.destroy(mySprite)
     statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -15
     score += 1
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile22, function (sprite1211, location1111) {
-    if (level == 3) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`my tile 34567`, function (sprite1211, location1111) {
+    if (level == 5) {
         tiles.setCurrentTilemap(tilemap`bruh`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(67, 23))
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(50, 38))
         level = 0
         setOverworldSprites()
     }
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile97, function (sprite1211, location1111) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`reddddddddddddddddddd`, function (sprite1211, location1111) {
     if (level == 17) {
         tiles.setCurrentTilemap(tilemap`bruh`)
         tiles.placeOnTile(mySprite, tiles.getTileLocation(28, 32))
@@ -393,10 +420,10 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile97, function (sprite1211, loc
         setOverworldSprites()
     }
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile54, function (sprite1211, location1111) {
-    if (level == 11) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`van 567876543`, function (sprite1211, location1111) {
+    if (level == 16) {
         tiles.setCurrentTilemap(tilemap`bruh`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(14, 14))
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(8, 29))
         level = 0
         setOverworldSprites()
     }
@@ -406,7 +433,12 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.monster7, function (sprite, othe
     sprites.destroy(otherSprite, effects.disintegrate, 500)
     scene.cameraShake(4, 500)
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile37, function (sprite1211, location1111) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster12, function (sprite, otherSprite) {
+    sprites.destroy(mySprite)
+    statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -15
+    score += 1
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`White House pls work`, function (sprite1211, location1111) {
     if (level == 5) {
         tiles.setCurrentTilemap(tilemap`bruh`)
         tiles.placeOnTile(mySprite, tiles.getTileLocation(50, 38))
@@ -414,23 +446,15 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile37, function (sprite1211, loc
         setOverworldSprites()
     }
 })
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster12, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster15, function (sprite, otherSprite) {
     sprites.destroy(mySprite)
     statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -15
     score += 1
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile27, function (sprite1211, location1111) {
-    if (level == 0) {
-        tiles.setCurrentTilemap(tilemap`Cabin`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
-        level = 15
-        monster3 = sprites.create(assets.image`flame sprite`, SpriteKind.monster3)
-        tiles.placeOnRandomTile(monster3, myTiles.tile56)
-        statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
-        statusbar.setColor(5, 12)
-        statusbar.value = 100
-        statusbar.attachToSprite(monster3)
-    }
+sprites.onOverlap(SpriteKind.Player, SpriteKind.monster14, function (sprite, otherSprite) {
+    life += 1
+    sprites.destroy(otherSprite, effects.disintegrate, 500)
+    scene.cameraShake(4, 500)
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.monster5, function (sprite, otherSprite) {
     life += 1
@@ -668,30 +692,51 @@ function setOverworldSprites () {
     true
     )
 }
+scene.onOverlapTile(SpriteKind.Player, assets.tile`RED power`, function (sprite1211, location1111) {
+    if (level == 3) {
+        tiles.setCurrentTilemap(tilemap`bruh`)
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(67, 23))
+        level = 0
+        setOverworldSprites()
+    }
+})
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster3, function (sprite, otherSprite) {
     sprites.destroy(mySprite)
     statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -15
     score += 1
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile86, function (sprite1211, location1111) {
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile21`, function (sprite1211, location1111) {
     if (level == 0) {
-        tiles.setCurrentTilemap(tilemap`og og og cave`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
-        level = 13
-        setOverworldSprites()
-    }
-})
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile23, function (sprite1211, location1111) {
-    if (level == 0) {
-        tiles.setCurrentTilemap(tilemap`White House pls work`)
-        tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
+        tiles.setCurrentTilemap(tilemap`Tree House`)
+        tiles.placeOnTile(mySprite, tiles.getTileLocation(8, 7))
         level = 5
-        monster4 = sprites.create(assets.image`flame sprite`, SpriteKind.monster4)
-        tiles.placeOnRandomTile(monster4, myTiles.tile88)
-        statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
-        statusbar.setColor(5, 12)
-        statusbar.value = 100
-        statusbar.attachToSprite(monster4)
+        treehouse_guy = sprites.create(img`
+            ........................
+            ......ffff..............
+            ....fff22fff............
+            ...fff2222fff...........
+            ..fffeeeeeefff..........
+            ..ffe222222eef..........
+            ..fe2ffffff2ef..........
+            ..ffffeeeeffff..........
+            .ffefbf44fbfeff.........
+            .fee41fddf14eef.........
+            fdfeeddddd4eff..........
+            fbffee444edd4e..........
+            fbf4f2222edde...........
+            fcf.f22cccee............
+            .ff.f44cdc4f............
+            ....fffddcff............
+            .....fddcff.............
+            ....cddc................
+            ....cdc.................
+            ....cc..................
+            ........................
+            ........................
+            ........................
+            ........................
+            `, SpriteKind.NPC)
+        tiles.placeOnTile(treehouse_guy, tiles.getTileLocation(4, 9))
     }
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster11, function (sprite, otherSprite) {
@@ -699,7 +744,12 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster11, function (sprite,
     statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -15
     score += 1
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile96, function (sprite1211, location1111) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster16, function (sprite, otherSprite) {
+    sprites.destroy(mySprite)
+    statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -15
+    score += 1
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`red lol red`, function (sprite1211, location1111) {
     if (level == 1) {
         tiles.setCurrentTilemap(tilemap`bruh`)
         tiles.placeOnTile(mySprite, tiles.getTileLocation(12, 41))
@@ -707,21 +757,35 @@ scene.onOverlapTile(SpriteKind.Player, myTiles.tile96, function (sprite1211, loc
         setOverworldSprites()
     }
 })
-scene.onOverlapTile(SpriteKind.Player, myTiles.tile72, function (sprite1211, location1111) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.monster15, function (sprite, otherSprite) {
+    life += 1
+    sprites.destroy(otherSprite, effects.disintegrate, 500)
+    scene.cameraShake(4, 500)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`house10`, function (sprite1211, location1111) {
     if (level == 0) {
-        tiles.setCurrentTilemap(tilemap`House0`)
+        tiles.setCurrentTilemap(tilemap`bouncy house but normal`)
         tiles.placeOnTile(mySprite, tiles.getTileLocation(7, 13))
-        level = 1
-        setOverworldSprites()
+        level = 17
+        monster12 = sprites.create(assets.image`flame sprite`, SpriteKind.monster12)
+        tiles.placeOnRandomTile(monster12, assets.tile`myTile60`)
+        statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
+        statusbar.setColor(5, 12)
+        statusbar.value = 100
+        statusbar.attachToSprite(monster12)
+    }
+    if (spriteutils.distanceBetween(mySprite, monster12) < 100) {
+        monster12.follow(mySprite, -10)
+    } else {
+        monster12.follow(null)
     }
 })
-let monster4: Sprite = null
-let monster3: Sprite = null
+let monster12: Sprite = null
+let monster5: Sprite = null
 let monster_1: Sprite = null
 let monster2: Sprite = null
-let monster12: Sprite = null
-let score = 0
-let monster5: Sprite = null
+let monster4: Sprite = null
+let monster3: Sprite = null
 let chill_guy_NPC: Sprite = null
 let wizardess_NPC: Sprite = null
 let cat_NPC: Sprite = null
@@ -732,6 +796,7 @@ let dog_NPC: Sprite = null
 let fish_NPC: Sprite = null
 let mySprite3: Sprite = null
 let treehouse_guy: Sprite = null
+let score = 0
 let life = 0
 let statusbar: StatusBarSprite = null
 let mySprite: Sprite = null
@@ -745,35 +810,53 @@ mySprite.x += 600
 mySprite.y += 490
 setOverworldSprites()
 let monster6 = sprites.create(assets.image`flame sprite`, SpriteKind.monster6)
-tiles.placeOnRandomTile(monster6, myTiles.tile1)
+tiles.placeOnRandomTile(monster6, assets.tile`myTileloluse`)
 statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
 statusbar.setColor(5, 12)
 statusbar.value = 100
 statusbar.attachToSprite(monster6)
 let monster8 = sprites.create(assets.image`flame sprite`, SpriteKind.monster8)
-tiles.placeOnRandomTile(monster8, myTiles.tile1)
+tiles.placeOnRandomTile(monster8, assets.tile`myTileloluse`)
 statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
 statusbar.setColor(5, 12)
 statusbar.value = 100
 statusbar.attachToSprite(monster8)
 let monster9 = sprites.create(assets.image`flame sprite`, SpriteKind.monster9)
-tiles.placeOnRandomTile(monster9, myTiles.tile1)
+tiles.placeOnRandomTile(monster9, assets.tile`myTileloluse`)
 statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
 statusbar.setColor(5, 12)
 statusbar.value = 100
 statusbar.attachToSprite(monster9)
 let monster10 = sprites.create(assets.image`flame sprite`, SpriteKind.monster10)
-tiles.placeOnRandomTile(monster10, myTiles.tile1)
+tiles.placeOnRandomTile(monster10, assets.tile`myTileloluse`)
 statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
 statusbar.setColor(5, 12)
 statusbar.value = 100
 statusbar.attachToSprite(monster10)
 let monster11 = sprites.create(assets.image`flame sprite`, SpriteKind.monster11)
-tiles.placeOnRandomTile(monster11, myTiles.tile1)
+tiles.placeOnRandomTile(monster11, assets.tile`myTileloluse`)
 statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
 statusbar.setColor(5, 12)
 statusbar.value = 100
 statusbar.attachToSprite(monster11)
+let monster14 = sprites.create(assets.image`flame sprite`, SpriteKind.monster14)
+tiles.placeOnRandomTile(monster14, assets.tile`myTileloluse`)
+statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
+statusbar.setColor(5, 12)
+statusbar.value = 100
+statusbar.attachToSprite(monster14)
+let monster15 = sprites.create(assets.image`flame sprite`, SpriteKind.monster15)
+tiles.placeOnRandomTile(monster15, assets.tile`myTileloluse`)
+statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
+statusbar.setColor(5, 12)
+statusbar.value = 100
+statusbar.attachToSprite(monster15)
+let monster16 = sprites.create(assets.image`flame sprite`, SpriteKind.monster16)
+tiles.placeOnRandomTile(monster16, assets.tile`myTileloluse`)
+statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
+statusbar.setColor(5, 12)
+statusbar.value = 100
+statusbar.attachToSprite(monster16)
 game.onUpdate(function () {
     if (level != 0) {
         sprites.destroy(mySprite3)
@@ -821,8 +904,56 @@ game.onUpdate(function () {
         if (level != 0) {
             sprites.destroy(monster9)
         }
+        if (level != 0) {
+            sprites.destroy(monster14)
+        }
+        if (level != 0) {
+            sprites.destroy(monster15)
+        }
+        if (level != 0) {
+            sprites.destroy(monster16)
+        }
     }
 })
 forever(function () {
-    mySprite.sayText(level)
+    if (spriteutils.distanceBetween(mySprite, monster10) < 100) {
+        monster10.follow(mySprite, -10)
+    } else {
+        monster10.follow(null)
+    }
+    if (spriteutils.distanceBetween(mySprite, monster9) < 100) {
+        monster9.follow(mySprite, -5)
+    } else {
+        monster9.follow(null)
+    }
+    if (spriteutils.distanceBetween(mySprite, monster6) < 100) {
+        monster6.follow(mySprite, -5)
+    } else {
+        monster6.follow(null)
+    }
+    if (spriteutils.distanceBetween(mySprite, monster8) < 100) {
+        monster8.follow(mySprite, -10)
+    } else {
+        monster8.follow(null)
+    }
+    if (spriteutils.distanceBetween(mySprite, monster11) < 100) {
+        monster11.follow(mySprite, -5)
+    } else {
+        monster11.follow(null)
+    }
+    if (spriteutils.distanceBetween(mySprite, monster14) < 100) {
+        monster14.follow(mySprite, -10)
+    } else {
+        monster14.follow(null)
+    }
+    if (spriteutils.distanceBetween(mySprite, monster15) < 100) {
+        monster15.follow(mySprite, -10)
+    } else {
+        monster15.follow(null)
+    }
+    if (spriteutils.distanceBetween(mySprite, monster16) < 100) {
+        monster16.follow(mySprite, -10)
+    } else {
+        monster16.follow(null)
+    }
 })
