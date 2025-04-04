@@ -17,6 +17,7 @@ namespace SpriteKind {
     export const monster14c = SpriteKind.create()
     export const monster15 = SpriteKind.create()
     export const monster16 = SpriteKind.create()
+    export const button = SpriteKind.create()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.monster8, function (sprite, otherSprite) {
     life += 1
@@ -438,6 +439,26 @@ sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster12, function (sprite,
     statusbars.getStatusBarAttachedTo(StatusBarKind.EnemyHealth, otherSprite).value += -15
     score += 1
 })
+sprites.onOverlap(SpriteKind.Player, SpriteKind.button, function (sprite, otherSprite) {
+    if (otherSprite == treehouse_button) {
+        treehouse_button.sayText("\"You have found the secret button for the tree house!\"", 1000, false)
+        sprites.destroy(treehouse_button)
+        tiles.setTileAt(tiles.getTileLocation(21, 49), assets.tile`transparency16`)
+        tiles.setTileAt(tiles.getTileLocation(21, 50), assets.tile`transparency16`)
+        tiles.setTileAt(tiles.getTileLocation(22, 50), assets.tile`transparency16`)
+        tiles.setTileAt(tiles.getTileLocation(23, 50), assets.tile`transparency16`)
+        tiles.setTileAt(tiles.getTileLocation(23, 49), assets.tile`transparency16`)
+        tiles.setTileAt(tiles.getTileLocation(21, 48), assets.tile`transparency16`)
+        tiles.setTileAt(tiles.getTileLocation(23, 48), assets.tile`transparency16`)
+        tiles.setWallAt(tiles.getTileLocation(21, 49), false)
+        tiles.setWallAt(tiles.getTileLocation(21, 50), false)
+        tiles.setWallAt(tiles.getTileLocation(22, 50), false)
+        tiles.setWallAt(tiles.getTileLocation(23, 50), false)
+        tiles.setWallAt(tiles.getTileLocation(23, 49), false)
+        tiles.setWallAt(tiles.getTileLocation(21, 48), false)
+        tiles.setWallAt(tiles.getTileLocation(23, 48), false)
+    }
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`White House pls work`, function (sprite1211, location1111) {
     if (level == 5) {
         tiles.setCurrentTilemap(tilemap`bruh`)
@@ -737,6 +758,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile21`, function (sprite12
             ........................
             `, SpriteKind.NPC)
         tiles.placeOnTile(treehouse_guy, tiles.getTileLocation(4, 9))
+        treehouse_button = sprites.create(assets.image`button`, SpriteKind.button)
+        tiles.placeOnTile(treehouse_button, tiles.getTileLocation(50, 52))
+        mySprite.z = 1
     }
 })
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.monster11, function (sprite, otherSprite) {
@@ -798,6 +822,7 @@ let mySprite3: Sprite = null
 let treehouse_guy: Sprite = null
 let score = 0
 let life = 0
+let treehouse_button: Sprite = null
 let statusbar: StatusBarSprite = null
 let mySprite: Sprite = null
 let level = 0
@@ -857,6 +882,31 @@ statusbar = statusbars.create(15, 2, StatusBarKind.EnemyHealth)
 statusbar.setColor(5, 12)
 statusbar.value = 100
 statusbar.attachToSprite(monster16)
+let Key_0 = sprites.create(img`
+    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+    7 7 7 7 7 e e e 7 7 7 7 7 7 7 7 
+    7 7 7 7 7 e 7 e e e e e e 7 7 7 
+    7 7 7 7 7 e 7 e e 7 7 e 7 7 7 7 
+    7 7 7 7 7 e e e 7 7 7 7 7 7 7 7 
+    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+    7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
+    `, SpriteKind.Player)
+tiles.placeOnTile(Key_0, tiles.getTileLocation(0, 0))
+let number_of_keys = 0
+tiles.placeOnTile(Key_0, tiles.getTileLocation(0, 0))
+music.play(music.stringPlayable("E B C5 A B G A F ", 120), music.PlaybackMode.LoopingInBackground)
+treehouse_button = sprites.create(assets.image`button`, SpriteKind.button)
+tiles.placeOnTile(treehouse_button, tiles.getTileLocation(50, 52))
+mySprite.z = 1
 game.onUpdate(function () {
     if (level != 0) {
         sprites.destroy(mySprite3)

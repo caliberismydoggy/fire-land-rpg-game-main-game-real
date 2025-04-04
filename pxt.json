@@ -6,7 +6,8 @@
         "Timers": "github:microsoft/arcade-timers#v1.1.0",
         "sprite-scaling": "*",
         "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.2",
-        "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.4.1"
+        "arcade-sprite-util": "github:jwunderl/arcade-sprite-util#v0.4.1",
+        "carnival": "github:microsoft/arcade-carnival#v0.0.7"
     },
     "files": [
         "main.blocks",
